@@ -120,8 +120,8 @@
         function mergeSortBu(arr) {
             var orderedArr = [];
             var arraycopy = function (sourceArray, sourceStart, destinationArray, destinationStart, copyLength) {
-                var k = sourceStart;  
-                for (var i = destinationStart; i < copyLength + destinationStart; i++) {                   
+                var k = sourceStart;
+                for (var i = destinationStart; i < copyLength + destinationStart; i++) {
                     destinationArray[i] = sourceArray[k];
                     k++;
                 }
@@ -151,6 +151,19 @@
             return arr;
         }
 
+
+        //快速排序
+        function quickSort(array) {
+            const l = array.length
+            if (l < 2) return array
+            const basic = array[0], left = [], right = []
+            for (let i = 1; i < l; i++) {
+                const iv = array[i]
+                iv >= basic && right.push(iv) // to avoid repeatly element.
+                iv < basic && left.push(iv)
+            }
+            return quickSort(left).concat(basic, quickSort(right))
+        }
     </script>
 </body>
 
