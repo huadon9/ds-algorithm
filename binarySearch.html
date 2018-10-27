@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>binarySearch</title>
+</head>
+
+<body>
+
+    <script>
+        var array = [1, 2, 3, 4, 5, 6, 7, 8 , 9];
+
+        // ele 要查找的元素 返回该元素在数组中的index，没有返回-1
+        function binarySearch (array, ele) {
+            var len = array.length;
+            var arrMid = len >> 1; //>> 右移位运算的速度优于 / 数学运算
+            var mid = arrMid;
+            
+            if (array[mid] == ele) {
+                return mid;
+            }
+            while (mid != 0 || mid != arrMid) {
+                if (ele > array[mid]) {
+                    mid = ((len - mid) >> 1) + mid;
+                }
+
+                if (ele < array[mid]) {
+                    mid = mid >> 1;
+                }
+
+                if (array[mid] == ele) {
+                    return mid;
+                }
+            }           
+
+            return -1;
+        }
+
+    </script>
+</body>
+
+</html>
